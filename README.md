@@ -33,4 +33,16 @@
 
 1，APP 存放app文件
 
-2，Base 放基础方法模块。BaseAdb.py模块获取设备名、设备UDID、设备系统版本号；
+2，Base 放基础方法模块。BaseAdb.py模块获取设备名、设备UDID、设备系统版本号；BaseApk.py模块获取APP中app的路径、appPackage、启动类appActivity；BaseUpdateYmal.py模块将获取的app信息写入Config 中的yaml文件；BaseInstallApp.py模块判断设备是否安装需要测试的app，否则安装应用；BaseAppiumServer.py模块启动appium服务；BaseDriver.py模块启动app方法；BaseLog.py为日志模块；BaseOperate.py模块滑动操作；BaseMethod.py模块判断页面是否存在某元素；BaseTools.py模块获取当前类名、当前函数名等；BaseView.py模块为元素基类BaseScreenShot.py模块截图；BaseReport.py模块生成报告
+
+3，Config 中的desired_caps.yaml文件中存放启动app信息
+
+4，Log 中存放日志
+
+5，Report 中存放测试报告
+
+6，Screenshot 中存放截图
+
+7，Testcase 中存放用例操作步骤代码模块
+
+8，用例.xlsx 中为编写的测试用例
