@@ -48,3 +48,5 @@
 7，Testcase 中存放用例操作步骤代码模块
 
 8，用例.xlsx 中为编写的测试用例
+
+9，Runner 中的run_main.py为测试用例执行模块
