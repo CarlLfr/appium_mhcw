@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>麻花宠物APP自动化测试报告</title>
+    <meta name="generator" content="BSTestRunner 0.8.4"/>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    
+<style type="text/css" media="screen">
+
+/* -- css div popup ------------------------------------------------------------------------ */
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #99CCFF;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 10pt;
+    width: 500px;
+}
+
+/* -- report ------------------------------------------------------------------------ */
+
+#show_detail_line .label {
+    font-size: 85%;
+    cursor: pointer;
+}
+
+#show_detail_line {
+    margin: 2em auto 1em auto;
+}
+
+#total_row  { font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+</style>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class="container">
+    <div class='heading'>
+<h1>麻花宠物APP自动化测试报告</h1>
+<p><strong>Start Time:</strong> 2019-10-16 11:50:00</p>
+<p><strong>Duration:</strong> 0:04:31.315519</p>
+<p><strong>Status:</strong> <span class="text text-success">Pass <strong>9</strong></span> <span class="text text-warning">Error <strong>12</strong></span></p>
+
+<p class='description'>Appium自动化测试报告</p>
+</div>
+
+
+    
+<p id='show_detail_line'>
+<span class="label label-primary" onclick="showCase(0)">Summary</span>
+<span class="label label-danger" onclick="showCase(1)">Failed</span>
+<span class="label label-default" onclick="showCase(2)">All</span>
+</p>
+<table id='result_table' class="table">
+    <thead>
+        <tr id='header_row'>
+            <th>Test Group/Test case</td>
+            <th>Count</td>
+            <th>Pass</td>
+            <th>Fail</td>
+            <th>Error</td>
+            <th>View</td>
+        </tr>
+    </thead>
+    <tbody>
+        
+<tr class='text text-warning'>
+    <td>CaseTest</td>
+    <td>21</td>
+    <td>9</td>
+    <td>0</td>
+    <td>12</td>
+    <td><a class="btn btn-xs btn-primary"href="javascript:showClassDetail('c1',21)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='text text-success'><div class='testcase'>test_001_launchApp: 启动APP，进入首页</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='text text-success'><div class='testcase'>test_002_noLogin_cancel: 验证未登录状态，点击按钮是否弹窗提示去登录</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='text text-success'><div class='testcase'>test_003_noLogin_switch_to_academy: 验证未登录状态能否查看学院文章</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='text text-success'><div class='testcase'>test_004_register_protocol: 验证注册-查看《用户注册及隐私协议》功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        pass</a>
+
+    <div id='div_pt1.4' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.4: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='text text-success'><div class='testcase'>test_005_register_old: 验证注册-输入已注册过的手机号进行注册</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
+        pass</a>
+
+    <div id='div_pt1.5' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.5: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='text text-success'><div class='testcase'>test_009_login_pwd: 验证登录-密码登录功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.6')" >
+        pass</a>
+
+    <div id='div_pt1.6' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.6: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='text text-success'><div class='testcase'>test_010_add_item: 验证日常打卡-添加功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.7')" >
+        pass</a>
+
+    <div id='div_pt1.7' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.7: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='text text-success'><div class='testcase'>test_011_daily_click: 验证日常打卡-打卡功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.8')" >
+        pass</a>
+
+    <div id='div_pt1.8' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.8: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='text text-success'><div class='testcase'>test_012_delete_item: 验证日常打卡-删除打卡项功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.9')" >
+        pass</a>
+
+    <div id='div_pt1.9' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.9: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.10' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_013_add_warning: 验证提醒吧-新增提醒功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.10')" >
+        error</a>
+
+    <div id='div_ft1.10' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.10: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+[2019-10-16 11:54:18,353] - INFO: ===当前方法：add_warning，验证提醒吧-新增提醒功能===
+[2019-10-16 11:54:18,810] - INFO: 进入提醒吧页面
+[2019-10-16 11:54:20,277] - INFO: 进入提醒吧-添加提醒列表页
+Traceback (most recent call last):
+  File "G:/appium_mhcw/Runner/run_main.py", line 112, in test_013_add_warning
+    WarningBar(self.driver).add_warning()
+  File "G:\appium_mhcw\Testcase\test_06_warning.py", line 63, in add_warning
+    userDefinedEle = self.driver.find_element(*self.userDefinedBtn)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.11' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_014_finished_warning: 验证提醒吧-点击完成提醒功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.11')" >
+        error</a>
+
+    <div id='div_ft1.11' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.11: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+[2019-10-16 11:54:18,353] - INFO: ===当前方法：add_warning，验证提醒吧-新增提醒功能===
+[2019-10-16 11:54:18,810] - INFO: 进入提醒吧页面
+[2019-10-16 11:54:20,277] - INFO: 进入提醒吧-添加提醒列表页
+[2019-10-16 11:54:23,337] - INFO: ===当前方法：finished_warning，验证提醒完成功能===
+Traceback (most recent call last):
+  File "G:/appium_mhcw/Runner/run_main.py", line 117, in test_014_finished_warning
+    WarningBar(self.driver).finished_warning()
+  File "G:\appium_mhcw\Testcase\test_06_warning.py", line 120, in finished_warning
+    newWarningElement = self.driver.find_element(*self.newWarningBtn)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.12' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_015_delete_warning: 验证提醒吧-删除提醒项功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.12')" >
+        error</a>
+
+    <div id='div_ft1.12' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.12: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+[2019-10-16 11:54:18,353] - INFO: ===当前方法：add_warning，验证提醒吧-新增提醒功能===
+[2019-10-16 11:54:18,810] - INFO: 进入提醒吧页面
+[2019-10-16 11:54:20,277] - INFO: 进入提醒吧-添加提醒列表页
+[2019-10-16 11:54:23,337] - INFO: ===当前方法：finished_warning，验证提醒完成功能===
+[2019-10-16 11:54:23,586] - INFO: ===当前方法：delete_warning，验证删除提醒项功能===
+Traceback (most recent call last):
+  File "G:\appium_mhcw\Testcase\test_06_warning.py", line 148, in delete_warning
+    newWarningElement = self.driver.find_element(*self.newWarningBtn)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:/appium_mhcw/Runner/run_main.py", line 122, in test_015_delete_warning
+    WarningBar(self.driver).delete_warning()
+  File "G:\appium_mhcw\Testcase\test_06_warning.py", line 154, in delete_warning
+    newWarningElement = self.driver.find_element(*self.newWarningBtn)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.13' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_016_add_health_item: 验证健康管理-新增功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.13')" >
+        error</a>
+
+    <div id='div_ft1.13' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.13: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+[2019-10-16 11:54:18,353] - INFO: ===当前方法：add_warning，验证提醒吧-新增提醒功能===
+[2019-10-16 11:54:18,810] - INFO: 进入提醒吧页面
+[2019-10-16 11:54:20,277] - INFO: 进入提醒吧-添加提醒列表页
+[2019-10-16 11:54:23,337] - INFO: ===当前方法：finished_warning，验证提醒完成功能===
+[2019-10-16 11:54:23,586] - INFO: ===当前方法：delete_warning，验证删除提醒项功能===
+[2019-10-16 11:54:25,945] - INFO: ===当前方法：add_health_item，验证健康管理新增功能===
+Traceback (most recent call last):
+  File "G:/appium_mhcw/Runner/run_main.py", line 127, in test_016_add_health_item
+    HealthManagement(self.driver).add_health_item()
+  File "G:\appium_mhcw\Testcase\test_07_health.py", line 50, in add_health_item
+    healthElement = self.driver.find_element(*self.healthBtn)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.14' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_017_change_health_item: 验证健康管理-修改功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.14')" >
+        error</a>
+
+    <div id='div_ft1.14' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.14: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+[2019-10-16 11:54:18,353] - INFO: ===当前方法：add_warning，验证提醒吧-新增提醒功能===
+[2019-10-16 11:54:18,810] - INFO: 进入提醒吧页面
+[2019-10-16 11:54:20,277] - INFO: 进入提醒吧-添加提醒列表页
+[2019-10-16 11:54:23,337] - INFO: ===当前方法：finished_warning，验证提醒完成功能===
+[2019-10-16 11:54:23,586] - INFO: ===当前方法：delete_warning，验证删除提醒项功能===
+[2019-10-16 11:54:25,945] - INFO: ===当前方法：add_health_item，验证健康管理新增功能===
+[2019-10-16 11:54:26,163] - INFO: ===当前方法：change_health_item，验证修改健康管理项功能===
+Traceback (most recent call last):
+  File "G:/appium_mhcw/Runner/run_main.py", line 132, in test_017_change_health_item
+    HealthManagement(self.driver).change_health_item()
+  File "G:\appium_mhcw\Testcase\test_07_health.py", line 118, in change_health_item
+    newItemElement = self.driver.find_element(*self.newItem)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.15' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_018_delete_health_item: 验证健康管理-删除功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.15')" >
+        error</a>
+
+    <div id='div_ft1.15' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.15: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+[2019-10-16 11:54:18,353] - INFO: ===当前方法：add_warning，验证提醒吧-新增提醒功能===
+[2019-10-16 11:54:18,810] - INFO: 进入提醒吧页面
+[2019-10-16 11:54:20,277] - INFO: 进入提醒吧-添加提醒列表页
+[2019-10-16 11:54:23,337] - INFO: ===当前方法：finished_warning，验证提醒完成功能===
+[2019-10-16 11:54:23,586] - INFO: ===当前方法：delete_warning，验证删除提醒项功能===
+[2019-10-16 11:54:25,945] - INFO: ===当前方法：add_health_item，验证健康管理新增功能===
+[2019-10-16 11:54:26,163] - INFO: ===当前方法：change_health_item，验证修改健康管理项功能===
+[2019-10-16 11:54:26,394] - INFO: ===当前方法：delete_health_item，验证删除健康管理项功能===
+Traceback (most recent call last):
+  File "G:/appium_mhcw/Runner/run_main.py", line 137, in test_018_delete_health_item
+    HealthManagement(self.driver).delete_health_item()
+  File "G:\appium_mhcw\Testcase\test_07_health.py", line 149, in delete_health_item
+    newItemElement = self.driver.find_element(*self.newItem)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.16' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_019_change_pet: 验证切换宠物功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.16')" >
+        error</a>
+
+    <div id='div_ft1.16' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.16: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+[2019-10-16 11:54:18,353] - INFO: ===当前方法：add_warning，验证提醒吧-新增提醒功能===
+[2019-10-16 11:54:18,810] - INFO: 进入提醒吧页面
+[2019-10-16 11:54:20,277] - INFO: 进入提醒吧-添加提醒列表页
+[2019-10-16 11:54:23,337] - INFO: ===当前方法：finished_warning，验证提醒完成功能===
+[2019-10-16 11:54:23,586] - INFO: ===当前方法：delete_warning，验证删除提醒项功能===
+[2019-10-16 11:54:25,945] - INFO: ===当前方法：add_health_item，验证健康管理新增功能===
+[2019-10-16 11:54:26,163] - INFO: ===当前方法：change_health_item，验证修改健康管理项功能===
+[2019-10-16 11:54:26,394] - INFO: ===当前方法：delete_health_item，验证删除健康管理项功能===
+[2019-10-16 11:54:26,623] - INFO: ===当前方法：change_pet，验证切换宠物功能===
+Traceback (most recent call last):
+  File "G:/appium_mhcw/Runner/run_main.py", line 142, in test_019_change_pet
+    ChosePet(self.driver).change_pet()
+  File "G:\appium_mhcw\Testcase\test_08_chose_pet.py", line 61, in change_pet
+    petNameElement = self.driver.find_element(*self.petName)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.17' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_020_add_pet: 验证添加宠物功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.17')" >
+        error</a>
+
+    <div id='div_ft1.17' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.17: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+[2019-10-16 11:54:18,353] - INFO: ===当前方法：add_warning，验证提醒吧-新增提醒功能===
+[2019-10-16 11:54:18,810] - INFO: 进入提醒吧页面
+[2019-10-16 11:54:20,277] - INFO: 进入提醒吧-添加提醒列表页
+[2019-10-16 11:54:23,337] - INFO: ===当前方法：finished_warning，验证提醒完成功能===
+[2019-10-16 11:54:23,586] - INFO: ===当前方法：delete_warning，验证删除提醒项功能===
+[2019-10-16 11:54:25,945] - INFO: ===当前方法：add_health_item，验证健康管理新增功能===
+[2019-10-16 11:54:26,163] - INFO: ===当前方法：change_health_item，验证修改健康管理项功能===
+[2019-10-16 11:54:26,394] - INFO: ===当前方法：delete_health_item，验证删除健康管理项功能===
+[2019-10-16 11:54:26,623] - INFO: ===当前方法：change_pet，验证切换宠物功能===
+[2019-10-16 11:54:26,905] - INFO: ===当前方法：add_pet，验证添加宠物功能===
+Traceback (most recent call last):
+  File "G:/appium_mhcw/Runner/run_main.py", line 147, in test_020_add_pet
+    ChosePet(self.driver).add_pet()
+  File "G:\appium_mhcw\Testcase\test_08_chose_pet.py", line 101, in add_pet
+    chosePetElement = self.driver.find_element(*self.chosePetBtn)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.18' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_021_delete_pet: 验证删除宠物功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.18')" >
+        error</a>
+
+    <div id='div_ft1.18' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.18: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+[2019-10-16 11:54:18,353] - INFO: ===当前方法：add_warning，验证提醒吧-新增提醒功能===
+[2019-10-16 11:54:18,810] - INFO: 进入提醒吧页面
+[2019-10-16 11:54:20,277] - INFO: 进入提醒吧-添加提醒列表页
+[2019-10-16 11:54:23,337] - INFO: ===当前方法：finished_warning，验证提醒完成功能===
+[2019-10-16 11:54:23,586] - INFO: ===当前方法：delete_warning，验证删除提醒项功能===
+[2019-10-16 11:54:25,945] - INFO: ===当前方法：add_health_item，验证健康管理新增功能===
+[2019-10-16 11:54:26,163] - INFO: ===当前方法：change_health_item，验证修改健康管理项功能===
+[2019-10-16 11:54:26,394] - INFO: ===当前方法：delete_health_item，验证删除健康管理项功能===
+[2019-10-16 11:54:26,623] - INFO: ===当前方法：change_pet，验证切换宠物功能===
+[2019-10-16 11:54:26,905] - INFO: ===当前方法：add_pet，验证添加宠物功能===
+[2019-10-16 11:54:27,200] - INFO: ===当前方法：delete_pet，验证删除宠物功能===
+Traceback (most recent call last):
+  File "G:/appium_mhcw/Runner/run_main.py", line 152, in test_021_delete_pet
+    ChosePet(self.driver).delete_pet()
+  File "G:\appium_mhcw\Testcase\test_08_chose_pet.py", line 237, in delete_pet
+    newPetElement = self.driver.find_element(*self.newPetBtn)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.19' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_022_calendar_daily_clock: 验证首页日历功能（选择日常打卡功能进行验证）</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.19')" >
+        error</a>
+
+    <div id='div_ft1.19' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.19').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.19: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+[2019-10-16 11:54:18,353] - INFO: ===当前方法：add_warning，验证提醒吧-新增提醒功能===
+[2019-10-16 11:54:18,810] - INFO: 进入提醒吧页面
+[2019-10-16 11:54:20,277] - INFO: 进入提醒吧-添加提醒列表页
+[2019-10-16 11:54:23,337] - INFO: ===当前方法：finished_warning，验证提醒完成功能===
+[2019-10-16 11:54:23,586] - INFO: ===当前方法：delete_warning，验证删除提醒项功能===
+[2019-10-16 11:54:25,945] - INFO: ===当前方法：add_health_item，验证健康管理新增功能===
+[2019-10-16 11:54:26,163] - INFO: ===当前方法：change_health_item，验证修改健康管理项功能===
+[2019-10-16 11:54:26,394] - INFO: ===当前方法：delete_health_item，验证删除健康管理项功能===
+[2019-10-16 11:54:26,623] - INFO: ===当前方法：change_pet，验证切换宠物功能===
+[2019-10-16 11:54:26,905] - INFO: ===当前方法：add_pet，验证添加宠物功能===
+[2019-10-16 11:54:27,200] - INFO: ===当前方法：delete_pet，验证删除宠物功能===
+[2019-10-16 11:54:27,451] - INFO: ===当前方法：calendar_daily_clock，验证日历记录功能是否正常===
+Traceback (most recent call last):
+  File "G:/appium_mhcw/Runner/run_main.py", line 157, in test_022_calendar_daily_clock
+    CalendarRecord(self.driver).calendar_daily_clock()
+  File "G:\appium_mhcw\Testcase\test_09_calendar_record.py", line 27, in calendar_daily_clock
+    calendarIconElement = self.driver.find_element(*self.calendarIcon)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.20' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_023_integral_sign_in: 验证积分-签到功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.20')" >
+        error</a>
+
+    <div id='div_ft1.20' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.20').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.20: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+[2019-10-16 11:54:18,353] - INFO: ===当前方法：add_warning，验证提醒吧-新增提醒功能===
+[2019-10-16 11:54:18,810] - INFO: 进入提醒吧页面
+[2019-10-16 11:54:20,277] - INFO: 进入提醒吧-添加提醒列表页
+[2019-10-16 11:54:23,337] - INFO: ===当前方法：finished_warning，验证提醒完成功能===
+[2019-10-16 11:54:23,586] - INFO: ===当前方法：delete_warning，验证删除提醒项功能===
+[2019-10-16 11:54:25,945] - INFO: ===当前方法：add_health_item，验证健康管理新增功能===
+[2019-10-16 11:54:26,163] - INFO: ===当前方法：change_health_item，验证修改健康管理项功能===
+[2019-10-16 11:54:26,394] - INFO: ===当前方法：delete_health_item，验证删除健康管理项功能===
+[2019-10-16 11:54:26,623] - INFO: ===当前方法：change_pet，验证切换宠物功能===
+[2019-10-16 11:54:26,905] - INFO: ===当前方法：add_pet，验证添加宠物功能===
+[2019-10-16 11:54:27,200] - INFO: ===当前方法：delete_pet，验证删除宠物功能===
+[2019-10-16 11:54:27,451] - INFO: ===当前方法：calendar_daily_clock，验证日历记录功能是否正常===
+[2019-10-16 11:54:27,664] - INFO: ===当前方法：integral_sign_in，验证积分签到功能是否正常===
+Traceback (most recent call last):
+  File "G:/appium_mhcw/Runner/run_main.py", line 162, in test_023_integral_sign_in
+    IntegralSignIn(self.driver).integral_sign_in()
+  File "G:\appium_mhcw\Testcase\test_10_integral.py", line 26, in integral_sign_in
+    myBtnElement = self.driver.find_element(*self.myBtn)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.21' class='text text-success'>
+    <td class='text text-warning'><div class='testcase'>test_024_feedback: 验证意见反馈功能</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link btn btn-xs btn-default" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.21')" >
+        error</a>
+
+    <div id='div_ft1.21' class="popup_window">
+        <div style='text-align: right;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.21').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.21: [2019-10-16 11:50:46,553] - INFO: ===当前方法：check_permitBin, 启动APP，确认是否有定位弹窗，是否有引导页、新手指引、升级弹窗，有则跳过进入首页===
+[2019-10-16 11:50:46,596] - INFO: 定位弹窗-允许，启动页截图中...
+[2019-10-16 11:50:51,444] - INFO: 进入引导页，截图、滑动
+[2019-10-16 11:51:08,594] - INFO: 点击引导页[立即体验]按钮进入首页
+[2019-10-16 11:51:11,923] - INFO: 不存在升级弹窗，进入首页
+[2019-10-16 11:51:14,499] - INFO: 首页跳转至发现页，跳过新手指引
+[2019-10-16 11:51:40,265] - INFO: 点击完成跳过新手指引
+[2019-10-16 11:51:45,271] - INFO: ===当前方法：chose_pet_click，验证未登录状态点击按钮是否弹窗提示去登录===
+[2019-10-16 11:51:46,667] - INFO: 首页跳转至发现页
+[2019-10-16 11:51:55,441] - INFO: ===当前方法：switch_page，验证未登录状态能否查看学院文章===
+[2019-10-16 11:51:56,046] - INFO: 切换至学院页
+[2019-10-16 11:51:58,878] - INFO: 进入喵星人-养猫准备页面
+[2019-10-16 11:52:02,418] - INFO: 进入养猫准备文章详情页面
+[2019-10-16 11:52:04,763] - INFO: 点击文章详情页面-分享按钮，分享弹窗
+[2019-10-16 11:52:06,179] - INFO: 点击分享弹窗-[取消]按钮，弹窗消失
+[2019-10-16 11:52:08,162] - INFO: 点击文章详情页面-返回按钮，返回至文章列表页
+[2019-10-16 11:52:10,780] - INFO: 点击文章列表页-返回按钮，返回至学院页面
+[2019-10-16 11:52:16,794] - INFO: ===当前方法：get_in_protocol，验证能否查看《用户注册及隐私协议》===
+[2019-10-16 11:52:17,310] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:19,783] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:22,197] - INFO: 点击[去登录]，跳转至登录页面成功！
+[2019-10-16 11:52:22,931] - INFO: 点击登录页[注册]按钮，进入注册页面
+[2019-10-16 11:52:24,186] - INFO: 点击注册页提示弹窗-[同意]按钮，弹窗消失
+[2019-10-16 11:52:27,499] - INFO: 进入《用户注册及隐私协议》页面成功！
+[2019-10-16 11:52:28,988] - INFO: 点击返回至注册页面！
+[2019-10-16 11:52:34,998] - INFO: ===当前方法：old_user_register，验证已注册过的手机号进行注册===
+[2019-10-16 11:52:44,056] - INFO: 输入已注册用户手机号，点击获取验证码
+[2019-10-16 11:52:45,250] - INFO: 跳转至登录页面，点击返回至记录页
+[2019-10-16 11:52:51,607] - INFO: ===当前方法：password_login，验证账号密码登录功能===
+[2019-10-16 11:52:52,964] - INFO: 未登录状态，切换至记录页，准备进入登录页面进行登录测试
+[2019-10-16 11:52:54,320] - INFO: 点击记录页-健康管理，弹窗提示登录
+[2019-10-16 11:52:55,598] - INFO: 跳转至登录页面
+[2019-10-16 11:52:57,004] - INFO: 点击[账号密码登录]按钮，进入账号密码登录页
+[2019-10-16 11:53:04,909] - INFO: 输入手机号：18768124236
+[2019-10-16 11:53:12,147] - INFO: 输入密码：111111
+[2019-10-16 11:53:14,157] - INFO: 点击登录按钮
+[2019-10-16 11:53:16,791] - INFO: 密码登录成功！
+[2019-10-16 11:53:21,797] - INFO: ===当前方法：add_item，验证日常打卡-添加功能===
+[2019-10-16 11:53:23,232] - INFO: 切换至记录页
+[2019-10-16 11:53:25,198] - INFO: 进入日常打卡页面
+[2019-10-16 11:53:29,118] - INFO: 进入添加页面
+[2019-10-16 11:53:42,586] - INFO: 日常事项输入：995，鼓励语输入：996
+[2019-10-16 11:53:45,448] - INFO: 添加日常事项成功！
+[2019-10-16 11:53:50,453] - INFO: ===当前方法：daily_click，验证日常打卡-打卡功能===
+[2019-10-16 11:53:50,802] - INFO: 点击吃饭
+[2019-10-16 11:53:52,622] - INFO: 点击排泄
+[2019-10-16 11:53:54,440] - INFO: 点击新增事项
+[2019-10-16 11:53:56,160] - INFO: 日常打卡页面添加打卡后，返回记录页
+[2019-10-16 11:53:58,541] - INFO: 日常打卡成功！
+[2019-10-16 11:54:03,550] - INFO: ===当前方法：delete_item，验证日常打卡-删除日常事项功能===
+[2019-10-16 11:54:03,897] - INFO: 进入日常打卡页面
+[2019-10-16 11:54:05,198] - INFO: 开始删除995选项
+{'y': 1419, 'x': 1160}
+[2019-10-16 11:54:11,838] - INFO: 日常打卡新增项删除成功！
+[2019-10-16 11:54:12,332] - INFO: 由日常打卡页面返回至记录页
+[2019-10-16 11:54:18,353] - INFO: ===当前方法：add_warning，验证提醒吧-新增提醒功能===
+[2019-10-16 11:54:18,810] - INFO: 进入提醒吧页面
+[2019-10-16 11:54:20,277] - INFO: 进入提醒吧-添加提醒列表页
+[2019-10-16 11:54:23,337] - INFO: ===当前方法：finished_warning，验证提醒完成功能===
+[2019-10-16 11:54:23,586] - INFO: ===当前方法：delete_warning，验证删除提醒项功能===
+[2019-10-16 11:54:25,945] - INFO: ===当前方法：add_health_item，验证健康管理新增功能===
+[2019-10-16 11:54:26,163] - INFO: ===当前方法：change_health_item，验证修改健康管理项功能===
+[2019-10-16 11:54:26,394] - INFO: ===当前方法：delete_health_item，验证删除健康管理项功能===
+[2019-10-16 11:54:26,623] - INFO: ===当前方法：change_pet，验证切换宠物功能===
+[2019-10-16 11:54:26,905] - INFO: ===当前方法：add_pet，验证添加宠物功能===
+[2019-10-16 11:54:27,200] - INFO: ===当前方法：delete_pet，验证删除宠物功能===
+[2019-10-16 11:54:27,451] - INFO: ===当前方法：calendar_daily_clock，验证日历记录功能是否正常===
+[2019-10-16 11:54:27,664] - INFO: ===当前方法：integral_sign_in，验证积分签到功能是否正常===
+[2019-10-16 11:54:27,919] - INFO: ===当前方法：feedback，验证意见反馈功能===
+Traceback (most recent call last):
+  File "G:/appium_mhcw/Runner/run_main.py", line 167, in test_024_feedback
+    Feedback(self.driver).feedback()
+  File "G:\appium_mhcw\Testcase\test_11_feedback.py", line 27, in feedback
+    feedbackElement = self.driver.find_element(*self.feedbackBtn)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 744, in find_element
+    {'using': by, 'value': value})['value']
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 233, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 29, in check_response
+    raise wde
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\appium\webdriver\errorhandler.py", line 24, in check_response
+    super(MobileErrorHandler, self).check_response(response)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python35\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 194, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: No element found
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+    </tbody>
+    <tfoot>
+        <tr id='total_row'>
+            <td>Total</td>
+            <td>21</td>
+            <td class="text text-success">9</td>
+            <td class="text text-danger">0</td>
+            <td class="text text-warning">12</td>
+            <td>&nbsp;</td>
+        </tr>
+    </tfoot>
+</table>
+
+    <div id='ending'>&nbsp;</div>
+</div>
+
+</body>
+</html>

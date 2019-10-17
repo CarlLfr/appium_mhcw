@@ -1,0 +1,14 @@
+platformName: Android
+platformVersion: 5.1.1
+deviceName: MI NOTE Pro
+udid: a1c7eab8
+noReset: true
+app: G:\appium_mhcw/App/app-mhcw-release.apk
+appPackage: com.pets.mhcw
+appActivity: com.pets.mhcw.MainActivity
+automationName: uiautomator2
+unicodeKeyboard: true
+resetKeyboard: true
+newCommondTimeout: 2000
+ip: 127.0.0.1
+port: 4723
